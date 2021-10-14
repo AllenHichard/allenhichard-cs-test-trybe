@@ -1,8 +1,6 @@
 from inventory_report.importer.importer import Importer
 import pandas as pd
-
 class CsvImporter(Importer):
-
     @staticmethod
     def import_data(path):
         try:
@@ -14,8 +12,3 @@ class CsvImporter(Importer):
             return stock
         except:
             raise ValueError("Arquivo inválido")
-        
-        
-         
-    
-        
