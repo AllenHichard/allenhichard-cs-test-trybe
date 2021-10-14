@@ -5,7 +5,7 @@ class JsonImporter(Importer):
     @staticmethod
     def import_data(path):
         try:
-            file = pd.read_json("../" + path)
+            file = pd.read_json(path)
             LIST = []
             for tuple in file.iterrows():  # name=None
                 tuple[1]["id"] = str(tuple[1]["id"])

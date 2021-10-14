@@ -7,7 +7,7 @@ class CsvImporter(Importer):
     @staticmethod
     def import_data(path):
         try:
-            file = pd.read_csv("../" + path)
+            file = pd.read_csv(path)
             LIST = []
             for tuple in file.iterrows(): #name=None
                 tuple[1]["id"] = str(tuple[1]["id"])

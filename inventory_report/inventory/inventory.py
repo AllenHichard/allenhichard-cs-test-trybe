@@ -16,11 +16,11 @@ class Inventory:
     @staticmethod
     def import_data(path, reportType):
         if path.endswith('.csv'):
-            file = pd.read_csv("../"+path)
+            file = pd.read_csv(path)
         elif path.endswith('.json'):
-            file = pd.read_json("../" + path)
+            file = pd.read_json(path)
         else:
-            file = pd.read_xml("../" + path)
+            file = pd.read_xml(path)
         exe = {"simples": simple_report.SimpleReport, "completo": complete_report.CompleteReport}
         return exe[reportType].generate(file)
     
