@@ -1,6 +1,3 @@
-import pandas as pd
-
-from inventory_report.inventory.inventory import Inventory
 from inventory_report.inventory.inventory_iterator import InventoryIterator
 from inventory_report.reports import simple_report, complete_report
 

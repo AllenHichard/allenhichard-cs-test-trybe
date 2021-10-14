@@ -1,6 +1,5 @@
 import pandas as pd
 from datetime import datetime
-from itertools import groupby
 
 class CompleteReport:
     '''
