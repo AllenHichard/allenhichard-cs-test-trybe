@@ -6,7 +6,7 @@ from inventory_report.inventory.inventory_refactor import InventoryRefactor
 import sys
 
 def main():
-    
+     
     if len(sys.argv) < 3:
         sys.stderr.write("Verifique os argumentos\n")
     else:
