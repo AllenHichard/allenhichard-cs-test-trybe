@@ -2,6 +2,8 @@ import pandas as pd
 from inventory_report.reports import simple_report, complete_report
 import xml.etree.ElementTree as et 
 class Inventory:
+    
+    
     '''
     Este método capaz de ler um arquivo CSV, JSOM ou XML o qual o 
     caminho é passado como parâmetro
@@ -13,6 +15,8 @@ class Inventory:
     Observação: os requisitos: 3, 4 e 5 são similares, 
     mudando apenas a extensão do arquivo.
     '''
+    
+    
     @staticmethod
     def import_data(path, reportType):
         if path.endswith('.csv'):
