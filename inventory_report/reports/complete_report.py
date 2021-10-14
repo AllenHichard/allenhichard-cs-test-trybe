@@ -25,15 +25,15 @@ class CompleteReport:
                 f"Empresa com maior quantidade de produtos estocados: "
                 f"{companyMProducts}\n\n"
                 f"Produtos estocados por empresa: \n"
-                f"{CompleteReport.listProductsStockedByCompany(df)}")
+                f"{CompleteReport.listProductsStockedCompany(df)}")
     @staticmethod
-    def listProductsStockedByCompany(df):
+    def listProductsStockedCompany(df):
         companies = df['nome_da_empresa'].values.tolist()
-        dictProductsStockedByCompany = {}
+        dictProductsStockedCompany = {}
         for company in companies:
-            if not company in dictProductsStockedByCompany: 
-                dictProductsStockedByCompany[company] = companies.count(company)
-        productsStockedByCompany = ""
-        for key in dictProductsStockedByCompany:
-            productsStockedByCompany += f"- {key}: {dictProductsStockedByCompany[key]}\n"
-        return productsStockedByCompany
+            if company not in dictProductsStockedCompany: 
+                dictProductsStockedCompany[company] = companies.count(company)
+        productsStockedCompany = ""
+        for key in dictProductsStockedCompany:
+            productsStockedCompany += f"- {key}: {dictProductsStockedCompany[key]}\n"
+        return productsStockedCompany
