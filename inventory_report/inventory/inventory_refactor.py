@@ -12,8 +12,8 @@ class InventoryRefactor (InventoryIterator):
 
     def import_data(self, path, reportType):
         self.data += self.importer.import_data(path)
-        exe = {"simples": simple_report.SimpleReport, "completo": complete_report.CompleteReport}
-        return exe[reportType].generate(self.data)
+        report = {"simples": simple_report.SimpleReport, "completo": complete_report.CompleteReport}
+        return report[reportType].generate(self.data)
         
     
     

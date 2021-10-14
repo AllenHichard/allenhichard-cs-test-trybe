@@ -11,12 +11,8 @@ def main():
         sys.stderr.write("Verifique os argumentos\n")
     else:
         id, path, reportType = sys.argv
-        if path.endswith('.csv'):
-            instance = InventoryRefactor(CsvImporter)
-        elif path.endswith('.json'):
-            instance = InventoryRefactor(JsonImporter)
-        else:
-            instance = InventoryRefactor(XmlImporter)
+        extension = path.split(".")[1]
+        importers = {"csv": InventoryRefactor(CsvImporter), "json": InventoryRefactor(JsonImporter), "xml": InventoryRefactor(XmlImporter)}
+        instance = importers[extension]
         sys.stdout.write(instance.import_data(path, reportType))
-        #print(instance.import_data(path, reportType), end="")
 
