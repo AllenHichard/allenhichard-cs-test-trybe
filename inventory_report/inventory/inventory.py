@@ -9,7 +9,9 @@ class Inventory:
     junto com o tipo de relatório (Simples ou Completo). De acordo com os parâmetros recebidos, 
     deve recuperar os dados do arquivo e chamar o método de gerar relatório correspondente à 
     entrada passada
+    Observação: os requisitos: 3, 4 e 5 são similares, mudando apenas a extensão do arquivo.
     '''
+    
     
     @staticmethod
     def import_data(path, reportType):
