@@ -19,7 +19,7 @@ class SimpleReport:
         closestValidityDate = df.loc[df[field] >= hoje][field].min()
         closestValidityDate = closestValidityDate.strftime('%Y-%m-%d') 
         companyWMProducts = df['nome_da_empresa'].value_counts().index[0] 
-        return (f"Data de fabricação mais antiga: {oldestManufactureDate}\n"
-               f"Data de validade mais próxima: {closestValidityDate}\n"
-               f"Empresa com maior quantidade de produtos estocados: "
-                f"{companyWMProducts}\n")
+        p1 = f"Data de fabricação mais antiga: {oldestManufactureDate}\n"
+        p2 = f"Data de validade mais próxima: {closestValidityDate}\n"
+        p3 = f"Empresa com maior quantidade de produtos estocados: {companyWMProducts}\n"
+        return p1+p2+p3
