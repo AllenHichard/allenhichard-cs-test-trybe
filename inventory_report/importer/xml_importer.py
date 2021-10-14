@@ -1,16 +1,21 @@
 from inventory_report.importer.importer import Importer
 import pandas as pd
+import xml.etree.ElementTree as et 
 
 class XmlImporter(Importer):
 
     @staticmethod
     def import_data(path):
         try:
-            file = pd.read_xml(path)
             stock = []
-            for item in file.iterrows():  # name=None
-                item[1]["id"] = str(item[1]["id"])
-                stock.append(dict(item[1]))
+            xml_data = open(path, 'r').read() 
+            root = et.XML(xml_data) 
+            cols = ["id", "nome_do_produto", "nome_da_empresa", "data_de_fabricacao", "data_de_validade", "numero_de_serie", "instrucoes_de_armazenamento"]
+            for i, child in enumerate(root):
+                dict = {}
+                for col, subchild in zip(cols, child):
+                    dict[col] = subchild.text
+                stock.append(dict)
             return stock
         except:
             raise ValueError("Arquivo inválido")
