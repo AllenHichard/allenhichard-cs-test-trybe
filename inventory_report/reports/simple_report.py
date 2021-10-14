@@ -3,12 +3,12 @@ from datetime import datetime
 
 
 class SimpleReport:
-    
+
     '''
-    Este método recebe dados numa lista contendo estruturas do tipo dict 
+    Este método recebe dados numa lista contendo estruturas do tipo dict
     e deverá retornar uma string formatada como um relatório.
     '''
-    
+
     @staticmethod
     def generate(stock):
         df = pd.DataFrame(stock)
@@ -17,8 +17,8 @@ class SimpleReport:
         hoje = datetime.today()
         field = "data_de_validade"
         closestValidityDate = df.loc[df[field] >= hoje][field].min()
-        closestValidityDate = closestValidityDate.strftime('%Y-%m-%d') 
-        companyWMProducts = df['nome_da_empresa'].value_counts().index[0] 
+        closestValidityDate = closestValidityDate.strftime('%Y-%m-%d')
+        companyWMProducts = df['nome_da_empresa'].value_counts().index[0]
         p1 = f"Data de fabricação mais antiga: {oldestManufactureDate}\n"
         p2 = f"Data de validade mais próxima: {closestValidityDate}\n"
         p3 = f"Empresa com maior quantidade de produtos estocados: " \

@@ -3,12 +3,12 @@ from datetime import datetime
 
 
 class CompleteReport:
-    
+
     '''
-    Este método recebe dados numa lista contendo estruturas do tipo dict 
+    Este método recebe dados numa lista contendo estruturas do tipo dict
     e deverá retornar uma string formatada como um relatório.
     '''
-    
+
     @staticmethod
     def generate(stock):
         df = pd.DataFrame(stock)
@@ -26,13 +26,13 @@ class CompleteReport:
                 f"{companyMProducts}\n\n"
                 f"Produtos estocados por empresa: \n"
                 f"{CompleteReport.listProductsStockedCompany(df)}")
-    
+
     @staticmethod
     def listProductsStockedCompany(df):
         companies = df['nome_da_empresa'].values.tolist()
         dictProductsStockedCompany = {}
         for company in companies:
-            if company not in dictProductsStockedCompany: 
+            if company not in dictProductsStockedCompany:
                 dictProductsStockedCompany[company] = companies.count(company)
         StockedCompany = ""
         for key in dictProductsStockedCompany:
