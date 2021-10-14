@@ -24,9 +24,12 @@ class CompleteReport:
 
     @staticmethod
     def listProductsStockedByCompany(df):
+        companies = df['nome_da_empresa'].values.tolist()
+        dictProductsStockedByCompany = {}
+        for company in companies:
+            if not company in dictProductsStockedByCompany: 
+                dictProductsStockedByCompany[company] = companies.count(company)
         productsStockedByCompany = ""
-        companyWithMoreProducts = df['nome_da_empresa'].values
-        for company, listProduct in groupby(companyWithMoreProducts):
-            productQuantity = len(list(listProduct))
-            productsStockedByCompany += f"- {company}: {productQuantity}\n"
+        for key in dictProductsStockedByCompany:
+            productsStockedByCompany += f"- {key}: {dictProductsStockedByCompany[key]}\n"
         return productsStockedByCompany
