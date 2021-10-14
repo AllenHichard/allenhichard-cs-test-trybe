@@ -1,8 +1,8 @@
 from inventory_report.importer.importer import Importer
-import pandas as pd
 import xml.etree.ElementTree as et 
+
+
 class XmlImporter(Importer):
-    
     
     @staticmethod
     def import_data(path):

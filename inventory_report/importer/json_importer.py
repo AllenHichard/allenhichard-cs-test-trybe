@@ -1,16 +1,15 @@
-from _ast import ExceptHandler
-
 from inventory_report.importer.importer import Importer
 import pandas as pd
+
+
 class JsonImporter(Importer):
-    
     
     @staticmethod
     def import_data(path):
         try:
             file = pd.read_json(path)
             stock = []
-            for item in file.iterrows():  # name=None
+            for item in file.iterrows(): 
                 item[1]["id"] = str(item[1]["id"])
                 stock.append(dict(item[1]))
             return stock
