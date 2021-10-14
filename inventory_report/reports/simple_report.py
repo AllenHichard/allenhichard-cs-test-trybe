@@ -21,5 +21,6 @@ class SimpleReport:
         companyWMProducts = df['nome_da_empresa'].value_counts().index[0] 
         p1 = f"Data de fabricação mais antiga: {oldestManufactureDate}\n"
         p2 = f"Data de validade mais próxima: {closestValidityDate}\n"
-        p3 = f"Empresa com maior quantidade de produtos estocados: {companyWMProducts}\n"
+        p3 = f"Empresa com maior quantidade de produtos estocados: " \
+             f"{companyWMProducts}\n"
         return p1+p2+p3
