@@ -1,15 +1,16 @@
 from inventory_report.importer.importer import Importer
 import pandas as pd
+
 class JsonImporter(Importer):
 
     @staticmethod
     def import_data(path):
         try:
             file = pd.read_json(path)
-            LIST = []
-            for tuple in file.iterrows():  # name=None
-                tuple[1]["id"] = str(tuple[1]["id"])
-                LIST.append(dict(tuple[1]))
-            return LIST
+            stock = []
+            for item in file.iterrows():  # name=None
+                item[1]["id"] = str(item[1]["id"])
+                stock.append(dict(item[1]))
+            return stock
         except:
             raise ValueError("Arquivo inválido")
