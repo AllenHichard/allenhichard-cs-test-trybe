@@ -2,6 +2,7 @@ import pandas as pd
 
 from inventory_report.inventory.inventory import Inventory
 from inventory_report.inventory.inventory_iterator import InventoryIterator
+from inventory_report.reports import simple_report, complete_report
 
 class InventoryRefactor (InventoryIterator):
 
@@ -14,6 +15,8 @@ class InventoryRefactor (InventoryIterator):
 
     def import_data(self, path, reportType):
         self.data += self.importer.import_data(path)
+        exe = {"simples": simple_report.SimpleReport, "completo": complete_report.CompleteReport}
+        return exe[reportType].generate(self.data)
         
     
     
